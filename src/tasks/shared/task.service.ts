@@ -9,6 +9,7 @@ export class TaskService {
 
 
     constructor(
+        /* Responsável pela manipulação do banco de dados */
         @InjectModel('Task') private readonly taskModel: Model<Task>,
     ) {
 

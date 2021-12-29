@@ -1,7 +1,7 @@
 import { Document } from "mongoose";
 
 export class Task extends Document {
-    id: number;
+    id: string ;
     description: string;
     completed: boolean;
 }
