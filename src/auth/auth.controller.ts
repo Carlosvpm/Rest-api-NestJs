@@ -1,4 +1,4 @@
-import { User } from './../users/shared/user';
+import { User } from '../users/shared/classes/user';
 import { AuthService } from './shared/auth.service';
 
 import { Controller, Post, Request, UseGuards } from '@nestjs/common';

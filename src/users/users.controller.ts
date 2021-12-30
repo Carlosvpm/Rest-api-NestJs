@@ -1,6 +1,6 @@
 import { UserService } from './shared/user.service';
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { User } from './shared/user';
+import { User } from './shared/classes/user';
 
 
 @Controller('users')
@@ -37,10 +37,4 @@ export class UsersController {
     async delete(@Param('id') id: string) {
         this.userService.delete(id);
     }
-
-
-
-
-
-
 }

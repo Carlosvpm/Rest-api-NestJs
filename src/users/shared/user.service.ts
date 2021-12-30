@@ -1,4 +1,4 @@
-import { User } from './user';
+import { User } from './classes/user';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -41,12 +41,5 @@ export class UserService {
     async delete(id: string) {
         return await this.userModel.deleteOne({ _id: id }).exec()
     }
-
-
-
-
-
-
-
 
 }
