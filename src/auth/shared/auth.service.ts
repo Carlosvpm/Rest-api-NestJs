@@ -17,8 +17,8 @@ export class AuthService {
         const user = await this.userService.getByEmail(userEmail);
 
         if (user && user.password === userPassword) {
-            const { _id, name, email } = user
-            return { id: _id, name: name, email: email }
+            const { id, name, email } = user
+            return { id: id, name: name, email: email }
         }
         return null
     }

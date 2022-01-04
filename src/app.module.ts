@@ -1,18 +1,19 @@
+import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
-import { TasksModule } from './tasks/tasks.module';
+
 import { UsersModule } from './users/users.module';
+import { databaseProviders } from './database/database.providers';
 
 @Module({
   imports: [
+    DatabaseModule,
     AuthModule,
-    MongooseModule.forRoot('mongodb+srv://db-user:12345@cluster0.tvsyd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'),
-    TasksModule,
     UsersModule
   ],
   controllers: [AppController],
-  providers: [],
+  providers: [...databaseProviders],
+  exports: [...databaseProviders],
 })
 export class AppModule { }
