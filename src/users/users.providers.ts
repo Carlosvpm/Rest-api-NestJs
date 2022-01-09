@@ -1,5 +1,6 @@
-import { User } from './schemas/user.entity';
+
 import { Connection } from 'typeorm';
+import { User } from './schemas/user.entity';
 
 
 export const UserProviders = [

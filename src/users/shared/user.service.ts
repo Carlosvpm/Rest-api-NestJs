@@ -1,4 +1,4 @@
-import { User } from './classes/user';
+import { User } from './dto/user';
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';

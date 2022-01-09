@@ -1,6 +1,6 @@
 import { UserService } from './shared/user.service';
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { User } from './shared/classes/user';
+import { User } from './shared/dto/user';
 
 
 @Controller('users')
