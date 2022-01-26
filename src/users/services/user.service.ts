@@ -1,4 +1,4 @@
-import { User } from './dto/user';
+import { User } from '../dto/user';
 import { Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -7,7 +7,7 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class UserService {
-    User: any;
+    User: User;
 
     constructor(
         @Inject('USER_REPOSITORY') private userRepository: Repository<User>,
@@ -19,8 +19,7 @@ export class UserService {
     }
 
     async getById(id: number): Promise<User> {
-        const user = this.userRepository.findOne({ where: { id: id } });
-        return user
+        return this.userRepository.findOne({ where: { id: id } });
     }
 
 

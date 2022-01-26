@@ -1,7 +1,7 @@
 /*https://docs.nestjs.com/providers#services*/
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserService } from 'src/users/shared/user.service';
+import { UserService } from 'src/users/services/user.service';
 
 
 @Injectable()

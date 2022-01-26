@@ -1,9 +1,9 @@
-import { UserService } from './shared/user.service';
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { User } from './shared/dto/user';
+import { UserService } from './services/user.service';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put } from '@nestjs/common';
+import { User } from './dto/user';
 
 
-@Controller('users')
+@Controller('api/users')
 export class UsersController {
 
 
@@ -21,8 +21,11 @@ export class UsersController {
         return await this.userService.getById(id);
     }
 
-
     @Post()
+    /* HttpCode => manipular status code;
+     HttpStatus.NO_CONTENT => O NestJs possui um enum com status para facilitar;
+    */
+    @HttpCode(HttpStatus.NO_CONTENT)
     async create(@Body() user: User): Promise<User> {
         return this.userService.create(user);
     }
