@@ -1,4 +1,4 @@
-import { ProductsModule } from './products/products.module';
+import { CategoryModule } from './category/category.module';
 import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
@@ -9,10 +9,9 @@ import { databaseProviders } from './database/database.providers';
 
 @Module({
   imports: [
-    ProductsModule,
     DatabaseModule,
     AuthModule,
-    UsersModule
+    CategoryModule
   ],
   controllers: [AppController],
   providers: [...databaseProviders],
