@@ -1,3 +1,4 @@
+import { EntryModule } from './entries/entry.module';
 import { CategoryModule } from './category/category.module';
 import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './auth/auth.module';
@@ -9,6 +10,7 @@ import { databaseProviders } from './database/database.providers';
 
 @Module({
   imports: [
+    EntryModule,
     DatabaseModule,
     AuthModule,
     CategoryModule
