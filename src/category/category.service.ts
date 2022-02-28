@@ -1,11 +1,16 @@
-import { Category } from './../entities/category.entity';
-import { Inject, Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+/*
+https://docs.nestjs.com/providers#services
+*/
+
+import { Inject, Injectable } from "@nestjs/common";
+import { Repository } from "typeorm/repository/Repository";
+import { Category } from "./category.entity";
+
 
 
 @Injectable()
 export class CategoryService {
-    Category: Category;
+
 
     constructor(
         @Inject('CATEGORY_REPOSITORY') private categoryRepository: Repository<Category>,
@@ -36,5 +41,4 @@ export class CategoryService {
         await this.categoryRepository.delete({ id })
         return { deleted: true }
     }
-
 }

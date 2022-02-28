@@ -1,5 +1,5 @@
-import { Entry } from 'src/entries/entities/entry.entity';
-import { Connection } from 'typeorm';
+import { Entry } from 'src/entry/entry.entity';
+import { Connection } from "typeorm";
 
 export const EntryProviders = [
     {

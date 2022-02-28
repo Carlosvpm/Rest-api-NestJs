@@ -1,10 +1,15 @@
-import { CategoryService } from './services/category.service';
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
-import { Category } from './entities/category.entity';
+/*
+https://docs.nestjs.com/controllers#controllers
+*/
 
-@Controller('api/categories')
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Category } from './category.entity';
+import { CategoryService } from './category.service';
+
+@Controller('categories')
 export class CategoryController {
-      constructor(private categoryService: CategoryService) { }
+
+    constructor(private categoryService: CategoryService) { }
 
       @Get()
       async getAll(): Promise<Category[]> {
@@ -27,5 +32,9 @@ export class CategoryController {
             return await this.categoryService.update(id, category);
       }
 
+      @Delete(':id')
+      async delete(@Param('id') id: number) {
+            return await this.categoryService.delete(id);
+      }
 
 }
