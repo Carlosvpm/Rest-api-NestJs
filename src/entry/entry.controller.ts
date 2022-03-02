@@ -7,7 +7,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { Entry } from 'src/entry/entry.entity';
 import { EntryService } from './entry.service';
 
-@Controller('entries')
+@Controller('api/entries')
 export class EntryController {
 
 

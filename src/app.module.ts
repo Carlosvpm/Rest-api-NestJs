@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { EntryModule } from './entry/entry.module';
 import { CategoryModule } from './category/category.module';
 import { Module } from '@nestjs/common';
@@ -7,6 +8,7 @@ import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
+    AuthModule,
     EntryModule,
     DatabaseModule,
     CategoryModule

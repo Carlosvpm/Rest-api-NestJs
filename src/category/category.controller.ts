@@ -6,7 +6,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { Category } from './category.entity';
 import { CategoryService } from './category.service';
 
-@Controller('categories')
+@Controller('api/categories')
 export class CategoryController {
 
     constructor(private categoryService: CategoryService) { }
