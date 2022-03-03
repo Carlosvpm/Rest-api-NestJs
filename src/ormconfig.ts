@@ -9,9 +9,7 @@ export const config: MysqlConnectionOptions = {
     username: 'root',
     password: '161926',
     database: 'finansys',
-    entities: [
-        __dirname + '/../**/*.entity{.ts,.js}',
-    ],
-    synchronize: true,
+    entities: ['dist/**/*.entity{.ts,.js}'],
+    synchronize: false,
 };
 

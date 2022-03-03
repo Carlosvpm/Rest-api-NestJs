@@ -1,3 +1,4 @@
+import { InjectRepository } from '@nestjs/typeorm';
 import { Entry } from 'src/entry/entry.entity';
 /*
 https://docs.nestjs.com/providers#services
@@ -10,7 +11,7 @@ import { Repository } from 'typeorm';
 export class EntryService {
 
     constructor(
-        @Inject('ENTRY_REPOSITORY') private entryRepository: Repository<Entry>,
+        @InjectRepository(Entry) private entryRepository: Repository<Entry>,
     ) { }
 
 

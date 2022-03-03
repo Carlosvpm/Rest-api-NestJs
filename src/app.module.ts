@@ -7,25 +7,27 @@ import { EntryModule } from './entry/entry.module';
 import { CategoryModule } from './category/category.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { databaseProviders } from './database/database.providers';
-import { DatabaseModule } from './database/database.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from './ormconfig';
+import { Connection } from 'typeorm';
 
 @Module({
   imports: [
     SharedModule,
     AuthModule,
     EntryModule,
-    DatabaseModule,
     CategoryModule,
     TypeOrmModule.forRoot(config)
   ],
   controllers: [
     AppController
   ],
-  providers: [...databaseProviders],
-  exports: [...databaseProviders,
-  ],
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private connection: Connection) {
+
+  }
+}
+
+
