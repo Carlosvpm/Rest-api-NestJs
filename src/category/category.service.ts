@@ -1,11 +1,6 @@
-/*
-https://docs.nestjs.com/providers#services
-*/
-
-import { Inject, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { Repository } from "typeorm/repository/Repository";
 import { Category } from "./category.entity";
-
 
 
 @Injectable()
@@ -13,7 +8,7 @@ export class CategoryService {
 
 
     constructor(
-        @Inject('CATEGORY_REPOSITORY') private categoryRepository: Repository<Category>,
+        @InjectRepository(Category) private categoryRepository: Repository<Category>,
     ) { }
 
 
@@ -42,3 +37,7 @@ export class CategoryService {
         return { deleted: true }
     }
 }
+function InjectRepository(arg0: string) {
+    throw new Error("Function not implemented.");
+}
+

@@ -9,6 +9,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { databaseProviders } from './database/database.providers';
 import { DatabaseModule } from './database/database.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { config } from './ormconfig';
 
 @Module({
   imports: [
@@ -16,7 +18,8 @@ import { DatabaseModule } from './database/database.module';
     AuthModule,
     EntryModule,
     DatabaseModule,
-    CategoryModule
+    CategoryModule,
+    TypeOrmModule.forRoot(config)
   ],
   controllers: [
     AppController
