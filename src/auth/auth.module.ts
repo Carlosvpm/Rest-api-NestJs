@@ -1,12 +1,11 @@
-/*
-https://docs.nestjs.com/modules
-*/
-
+import { AuthService } from './auth.service';
 import { Module } from '@nestjs/common';
 
 @Module({
     imports: [],
     controllers: [],
-    providers: [],
+    providers: [
+        AuthService,
+    ],
 })
-export class AuthModule {}
+export class AuthModule { }

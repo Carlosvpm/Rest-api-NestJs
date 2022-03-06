@@ -1,3 +1,4 @@
+import { UserModule } from './users/user.module';
 import { ControlerModule } from './shared/controller/controler.module';
 import { ServiceModule } from './shared/services/service.module';
 
@@ -13,6 +14,7 @@ import { Connection } from 'typeorm';
 
 @Module({
   imports: [
+    UserModule,
     SharedModule,
     AuthModule,
     EntryModule,
