@@ -1,37 +1,8 @@
 import { Injectable } from "@nestjs/common";
-import { Repository } from "typeorm/repository/Repository";
+import { createResourceService } from "src/shared/services/base-resource.service";
 import { Category } from "./category.entity";
-import { InjectRepository } from '@nestjs/typeorm';
+
 
 @Injectable()
-export class CategoryService {
-    constructor(
-        @InjectRepository(Category) private categoryRepository: Repository<Category>,
-    ) { }
+export class CategoryService extends createResourceService(Category) {}
 
-
-    async getAll(): Promise<Category[]> {
-        return this.categoryRepository.find();
-    }
-
-    async getById(id: number): Promise<Category> {
-        return this.categoryRepository.findOne({ where: { id: id } });
-    }
-
-    async create(category: Category) {
-        const createdCategory = this.categoryRepository.create(category);
-        await this.categoryRepository.save(category);
-        return createdCategory
-    }
-
-
-    async update(id: number, category: Category) {
-        await this.categoryRepository.update({ id }, category);
-        return this.getById(id);
-    }
-
-    async delete(id: number) {
-        await this.categoryRepository.delete({ id })
-        return { deleted: true }
-    }
-}

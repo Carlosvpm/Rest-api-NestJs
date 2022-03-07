@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Type } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Entity, BaseEntity } from 'typeorm';
 
-function createResourceService(repository) {
+export function createResourceService(repository): Type<any> {
     class BaseResourceService {
         @InjectRepository(repository) private resourceRepository: Repository<BaseEntity>
-        
+
         async getAll(): Promise<BaseEntity[]> {
             return this.resourceRepository.find();
         }
