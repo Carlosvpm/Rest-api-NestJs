@@ -2,7 +2,7 @@ import { ICrudController } from './model/base-resource-controller';
 import { Body, Delete, Get, Param, Post, Put, Inject, Type, UseGuards } from '@nestjs/common';
 import { BaseEntity } from 'typeorm/repository/BaseEntity';
 import { ICrudService } from '../services/models/baseCrudService';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/auth/jwt/jwt-auth.guard';
 
 
 
