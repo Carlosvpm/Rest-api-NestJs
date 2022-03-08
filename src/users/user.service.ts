@@ -5,9 +5,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class UserService extends createResourceService(User) {
 
-
-
-
     getByUserName(username: string): User {
         return this.resourceRepository.findOne({ where: { username: username } });
 
