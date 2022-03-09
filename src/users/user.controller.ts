@@ -1,5 +1,7 @@
+import { createResourceService } from 'src/shared/services/base-resource.service';
+import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.entity';
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Post, UseGuards, Body } from '@nestjs/common';
 import { createBaseController } from 'src/shared/controller/base-resource.controller';
 import { UserService } from './user.service';
 import { ApiTags } from '@nestjs/swagger';
@@ -20,4 +22,13 @@ export class UserController extends createBaseController(UserService) {
     async getByUsername(@Param('username') username: string) {
         return await this.userService.getById(username);
     }
+
+
+    @UseGuards(JwtAuthGuard)
+    @Post()
+    async createUser(@Body() createUserDto: CreateUserDto){
+        return await this.userService.create(createUserDto);
+    }
+
+    
 }
